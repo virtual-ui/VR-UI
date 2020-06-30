@@ -1,7 +1,7 @@
 {
   "name": "virtual-ui",
   "version": "0.1.1",
-  "description": "åŸºäºŽ vue-cli3 çš„ UI ç»„ä»¶åº“",
+  "description": "»ùÓÚ vue-cli3 µÄ UI ×é¼þ¿â",
   "main": "lib/virtual-ui.umd.min.js",
   "keywords": "vr-ui",
   "private": false,
