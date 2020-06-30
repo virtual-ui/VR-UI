@@ -1,0 +1,16 @@
+<template>
+
+</template>
+<script>
+   export default {
+       name:"ms-button",
+       data(){
+           return{
+
+           }
+       }
+   }
+</script>
+<style lang="scss">
+
+</style>

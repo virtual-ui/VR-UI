@@ -3,7 +3,9 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import VrButton from "./../packages/index"
 
+Vue.use(VrButton)
 Vue.config.productionTip = false;
 
 new Vue({
