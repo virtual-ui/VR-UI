@@ -1,25 +1,29 @@
 module.exports = {
-    title: 'VR-UI',
     description: 'A UI library, built with Vue-Cli 3.0',
+    lange: 'zh-CN', // 语言
+    markdown: { // markdown 配置
+        lineNumbers: true
+    },
     head: [
-        ['link', { rel: 'icon', href: '/logo.png' }]
+        ['link', { rel: 'icon', href: '/images/favicon.ico' }]
     ],
     base: '/',
     themeConfig: {
+        logo: '/images/logo.png',
         nav: [
-            { text: '首页', link: '/document/guide/Home' },
-            { text: '指南', link: '/document/guide/' },
+            { text: '首页', link: '/pages/guide/Home' },
+            { text: '指南', link: '/pages/guide/' },
             { text: '文档', link: 'http://github.com/virtual-ui/VR-UI.git' },
-            { text: 'GitLab', link: 'https://github.com/virtual-ui/VR-UI.git' }
+            { text: 'GitHab', link: 'https://github.com/virtual-ui/VR-UI.git' }
         ],
         sidebar: [
             {
                 title: '开发指南',
                 collapsable: false,
                 children: [
-                    '/document/guide/Home',
-                    '/document/guide/Introduce',
-                    '/document/guide/GetStart',
+                    '/pages/guide/Home',
+                    '/pages/guide/Introduce',
+                    '/pages/guide/GetStart',
                 ]
             },
             {
@@ -30,8 +34,9 @@ module.exports = {
                         title:'通用',
                         collapsable: false,
                         children:[
-                            '/document/component/Button',
-                            '/document/component/Icon'
+                            '/pages/component/Button',
+                            '/pages/component/Icon',
+                            '/pages/component/link'
                         ]
                     }
                 ]

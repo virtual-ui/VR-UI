@@ -1,0 +1,27 @@
+//画一条0.5px的线
+@mixin fiber--verti($direction,$linecolor){
+  @include pse;
+  left:0;
+  #{$direction}:0;
+  width: 100%;
+  height: 1px;
+  border-top:1px solid $linecolor;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+@mixin fiber--hori($direction,$linecolor){
+  @include pse;
+  #{$direction}:0;
+  top:0;
+  height: 100%;
+  width: 1px;
+  border-left:1px solid $linecolor;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+
+}

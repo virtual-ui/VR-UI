@@ -9,6 +9,14 @@ module.exports = {
             msTileImage: 'favicon.ico'
         }
     },
+    //css loader
+    css: {
+        loaderOptions: {
+            sass: {
+                prependData: `@import "~@/assets/scss/_variable.scss";`
+            }
+        }
+    },
     // 修改 pages 入口
     pages: {
         index: {

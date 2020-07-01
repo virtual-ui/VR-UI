@@ -113,6 +113,10 @@
 ## 按钮组
 以按钮组的方式出现，常用于多项类似操作。
 
+<ClientOnly>
+ <button-demo-group></button-demo-group>
+</ClientOnly>
+
 ## 加载中
 点击按钮后进行数据加载操作，在按钮上显示加载状态。
 
