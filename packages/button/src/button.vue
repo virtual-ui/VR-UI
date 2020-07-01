@@ -1,8 +1,11 @@
 <template>
     <button
             class="vr-button"
-            :class="[`vr-button--${type}`,{'is-plain':plain,'is-round':round,'is-circle':circle,'ripple':ripple},`vr-button--${size}`]"
-            @click="handleClick()">
+            :class="[`vr-button--${type}`,
+            {'is-plain':plain,'is-round':round,'is-circle':circle,'ripple':isRipper,'is-flat':flat},
+            `vr-button--${size}`]"
+            @click="handleClick()"
+            :disabled="disabled">
         <i v-if="icon" :class="icon"></i>
         <span v-if="$slots.default">
             <slot></slot>
@@ -29,17 +32,34 @@
                type: Boolean,
                default: false
            },
-           ripple:{
-              type:Boolean,
-               default:true
-           },
            size:{
              type:String,
              default:"middle",
            },
+           disabled:{
+              type:Boolean,
+               default:false
+           },
+           ripple:{
+               type:Boolean,
+               default:true
+           },
+           flat:{
+               type:Boolean,
+               default:false
+           },
            icon: {
                type: String,
                default: ""
+           }
+       },
+       computed:{
+           isRipper(){
+               if(this.disabled){
+                   return false;
+               }else{
+                   return this.ripple;
+               }
            }
        },
        methods:{
@@ -78,6 +98,10 @@
         &:focus {
             color: #409eff;
             background-color: #ecf5ff;
+        }
+        &:disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
         }
     }
     // 按钮类型
@@ -137,12 +161,24 @@
         }
     }
     // 朴素按钮
-    .vr-button--.is-plain {
-        &:hover,
-        &:focus {
+    .vr-button--.is-plain{
+            &:hover,
+            &:focus {
+                background: #fff;
+                border-color: #409eff;
+                color: #409eff;
+            }
+    }
+    .vr-button--.is-flat,.vr-button.is-flat{
+        background: unset;
+        border:none;
+        box-shadow: none;
+        color: #4c4c4c;
+        &:active{
             background: #fff;
             border-color: #409eff;
-            color: #409eff;
+            color: #4c4c4c;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
     }
     .vr-button--primary.is-plain {
@@ -156,6 +192,18 @@
             color: #fff;
         }
     }
+    .vr-button--primary.is-flat {
+        background: unset;
+        border-color: #fff;
+        box-shadow: none;
+        color: #409eff;
+        &:active {
+            background: #409eff;
+            border-color: #409eff;
+            color: #fff;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
+    }
     .vr-button--success.is-plain {
         color: #67c23a;
         background-color: #f0f9eb;
@@ -165,6 +213,18 @@
             background: #67c23a;
             border-color: #67c23a;
             color: #fff;
+        }
+    }
+    .vr-button--success.is-flat {
+        background-color: unset;
+        border-color: #fff;
+        color: #67c23a;
+        box-shadow:none;
+        &:active {
+            background: #67c23a;
+            border-color: #67c23a;
+            color: #fff;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
     }
     .vr-button--info.is-plain {
@@ -178,6 +238,18 @@
             color: #fff;
         }
     }
+    .vr-button--info.is-flat {
+        color: #909399;
+        background-color: unset;
+        border:none;
+        box-shadow: none;
+        &:active {
+            background: #909399;
+            border-color: #909399;
+            color: #fff;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
+    }
     .vr-button--warning.is-plain {
         color: #e6a23c;
         background-color: #fdf6ec;
@@ -187,6 +259,17 @@
             background: #e6a23c;
             border-color: #e6a23c;
             color: #fff;
+        }
+    }.vr-button--warning.is-flat {
+        color: #e6a23c;
+        background-color: unset;
+        border:none;
+        box-shadow: none;
+        &:active {
+            background: #e6a23c;
+            border-color: #e6a23c;
+            color: #fff;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
     }
     .vr-button--danger.is-plain {
@@ -198,6 +281,18 @@
             background: #f56c6c;
             border-color: #f56c6c;
             color: #fff;
+        }
+    }
+    .vr-button--danger.is-flat {
+        color: #f56c6c;
+        background-color: unset;
+        border:none;
+        box-shadow: none;
+        &:active {
+            background: #f56c6c;
+            border-color: #f56c6c;
+            color: #fff;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
         }
     }
     //按钮大小
@@ -220,7 +315,6 @@
     // 圆角
     .vr-button.is-round {
         border-radius: 20px;
-        padding: 12px 23px;
     }
     // 圆形
     .vr-button.is-circle {
