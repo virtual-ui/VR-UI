@@ -8,8 +8,11 @@
  <button-demo-base></button-demo-base>
 </ClientOnly>
 
-::: details 查看代码
+::: tip
 使用type、plain、round和circle属性来定义 Button 的样式。
+:::
+
+::: details 查看代码
 ```html
 <template>
     <div>

@@ -5,6 +5,11 @@
                <vr-button type="primary">按钮1</vr-button>
                <vr-button type="primary">按钮2</vr-button>
            </vr-button-group>
+            <vr-button-group>
+               <vr-button >按钮1</vr-button>
+               <vr-button type="primary">按钮2</vr-button>
+               <vr-button type="primary">按钮2</vr-button>
+           </vr-button-group>
         </div>
     </div>
 </template>
@@ -21,7 +26,7 @@
     }
 </script>
 <style lang="scss" scoped>
-    .list{
-        margin: 10px 0;
+    .vr-button-group{
+        margin: 0 10px;
     }
 </style>

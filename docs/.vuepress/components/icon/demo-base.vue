@@ -1,6 +1,5 @@
 <template>
     <div>
-        <vr-icon class="vr-dongtai-miaobian"></vr-icon>
         <ul class="icon-list">
             <li v-for="(icon,index) in list" :key="index">
             <span>
@@ -21,44 +20,22 @@
         data(){
             return{
                 list:[
-                    "vr-gonggao-miaobian",
-                    "vr-ziliao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
-                    "vr-gonggao-miaobian",
+                    "vr-indeterminate-circle-line",
+                    "vr-information-fill",
+                    "vr-indeterminate-circle-fill",
+                    "vr-information-line",
+                    "vr-list-settings-fill",
+                    "vr-loader-2-fill",
+                    "vr-loader-4-line",
+                    "vr-loader-5-fill",
+                    "vr-loader-5-line",
+                    "vr-loader-fill",
+                    "vr-login-circle-fill",
+                    "vr-login-circle-line",
+                    "vr-menu-4-fill",
+                    "vr-menu-3-line",
+                    "vr-menu-3-fill",
+                    "vr-menu-2-line"
                 ]
             }
         }
@@ -71,7 +48,7 @@
         padding: 0!important;
         & li{
             float: left;
-            width: calc(100% /6);
+            width: calc(100% / 5);
             text-align: center;
             height: 100px;
             color: #666;
@@ -89,7 +66,7 @@
                 will-change: transform;
             }
             &:hover{
-                background: #409eff;
+                background: #FF99CC;
                 color: #fff;
                & .vr-icon{
                     color: white;
