@@ -1,7 +1,9 @@
 import button from './button';
+import link from './link';
 // 所有组件列表
 const components = [
     ...button,
+    link
 ]
 
 // 定义 install 方法，接收 Vue 作为参数

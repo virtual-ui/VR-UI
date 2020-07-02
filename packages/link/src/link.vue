@@ -1,6 +1,5 @@
 <template>
-    <h5
-            class="vr-link"
+    <h5 class="vr-link"
             :class="[`vr-link--${type}`]"
             @click="handleClick()"
             :disabled="disabled">

@@ -5,7 +5,7 @@
 基础的文字链接用法
 
 <ClientOnly>
-    <link-demo-base></link-demo-base>
+ <link-demo-base></link-demo-base>
 </ClientOnly>
 
 ::: details 查看代码
