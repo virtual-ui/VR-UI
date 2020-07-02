@@ -13,10 +13,10 @@
     }
 </script>
 <style lang="scss" scoped>
-  @import "../../style/mixin/mixin.scss";
+  /*@import "../../style/mixin/mixin.scss";*/
  .vr-button-group{
      display: inline-block;
-     border-radius: 2px;
+     border-radius: 4px;
      text-align: center;
      font-size: 0px;
      overflow: hidden;
@@ -24,11 +24,9 @@
          margin: 0;
          box-shadow: none;
          border-radius: unset;
-         &:nth-child(n+2){
+         &:nth-child(n+1){
              position: relative;
-             &::before{
-                 @include fiber--verti(left,#e6e6e6);
-             }
+             border-right: 1px solid #eee;
          }
      }
  }

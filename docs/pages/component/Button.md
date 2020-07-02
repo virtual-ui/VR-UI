@@ -108,6 +108,9 @@
 # 图标按钮
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
 
+<ClientOnly>
+ <button-demo-icon></button-demo-icon>
+</ClientOnly>
 
 
 ## 按钮组
@@ -120,9 +123,6 @@
 ## 加载中
 点击按钮后进行数据加载操作，在按钮上显示加载状态。
 
-<script>
-    import ButtonDemoFlat from "../../.vuepress/components/button/demo-flat";
-    export default {
-        components: {ButtonDemoFlat}
-    }
-</script>
+<ClientOnly>
+ <button-demo-loading></button-demo-loading>
+</ClientOnly>

@@ -6,7 +6,7 @@
             `vr-button--${size}`]"
             @click="handleClick()"
             :disabled="disabled">
-        <i v-if="icon" :class="icon"></i>
+        <i v-if="isIcon" :class="['vr-icon',icon]"></i>
         <span v-if="$slots.default">
             <slot></slot>
         </span>
@@ -51,15 +51,18 @@
            icon: {
                type: String,
                default: ""
+           },
+           loading:{
+              type:Boolean,
+               default:false
            }
        },
        computed:{
            isRipper(){
-               if(this.disabled){
-                   return false;
-               }else{
-                   return this.ripple;
-               }
+               return this.disabled ? false : this.ripple;
+           },
+           isIcon(){
+               return this.loading ? "vr-loading" :this.icon;
            }
        },
        methods:{
@@ -70,6 +73,14 @@
    }
 </script>
 <style lang="scss" scoped>
+    .vr-icon {
+        display: inline-block;
+        font-family: "vr-icon" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
     .vr-button {
         display: inline-block;
         line-height: 1;
