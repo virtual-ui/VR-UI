@@ -8,7 +8,7 @@
  <button-demo-base></button-demo-base>
 </ClientOnly>
 
-::: 提示
+::: tip 提示
 使用type、plain、round和circle属性来定义 Button 的样式。
 :::
 

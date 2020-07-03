@@ -13,7 +13,10 @@ module.exports = {
     css: {
         loaderOptions: {
             sass: {
-                prependData: `@import "~@/assets/scss/_variable.scss";`
+                prependData:
+                    `@import "packages/assets/style/common/variables.scss";
+                    @import "packages/assets/style/common/common.scss";
+                    `
             }
         }
     },
@@ -43,6 +46,17 @@ module.exports = {
             .tap(options => {
                 // 修改它的选项...
                 return options
+            })
+
+    //    配置字体图标
+        config.module
+            .rule("iconfont")
+            .test(/\.(svg|eot|ttf|woff|woff2)$/,)
+            .use("file-loader")
+            .loader("file-loader")
+            .options({
+                limit:10000,
+                name:"assets/iconfont/[name].[ext]"
             })
     }
 }

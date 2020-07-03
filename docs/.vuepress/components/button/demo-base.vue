@@ -25,12 +25,12 @@
             <vr-button type="danger" round>危险按钮</vr-button>
         </div>
         <div class="list">
-            <vr-button circle></vr-button>
-            <vr-button type="primary" circle></vr-button>
-            <vr-button type="success" circle></vr-button>
-            <vr-button type="info" circle></vr-button>
-            <vr-button type="warning" circle></vr-button>
-            <vr-button type="danger" circle></vr-button>
+            <vr-button circle icon="vr-home"></vr-button>
+            <vr-button type="primary" circle icon="vr-home"></vr-button>
+            <vr-button type="success" circle icon="vr-home"></vr-button>
+            <vr-button type="info" circle icon="vr-home"></vr-button>
+            <vr-button type="warning" circle icon="vr-home"></vr-button>
+            <vr-button type="danger" circle icon="vr-home"></vr-button>
         </div>
     </div>
 </template>

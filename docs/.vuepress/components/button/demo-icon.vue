@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="list">
-            <vr-button icon="vr-indeterminate-circle-line">按钮</vr-button>
-            <vr-button icon="vr-indeterminate-circle-line" type="primary">按钮</vr-button>
-            <vr-button icon="vr-indeterminate-circle-line" type="success">按钮</vr-button>
-            <vr-button icon="vr-indeterminate-circle-line" type="info">按钮</vr-button>
-            <vr-button icon="vr-indeterminate-circle-line" type="warning">按钮</vr-button>
-            <vr-button icon="vr-indeterminate-circle-line" type="danger">按钮</vr-button>
+            <vr-button icon="vr-home">按钮</vr-button>
+            <vr-button icon="vr-home" type="primary">按钮</vr-button>
+            <vr-button icon="vr-home" type="success">按钮</vr-button>
+            <vr-button icon="vr-home" type="info">按钮</vr-button>
+            <vr-button icon="vr-home" type="warning">按钮</vr-button>
+            <vr-button icon="vr-home" type="danger">按钮</vr-button>
         </div>
     </div>
 </template>

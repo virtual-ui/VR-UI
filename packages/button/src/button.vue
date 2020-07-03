@@ -6,8 +6,7 @@
             `vr-button--${size}`]"
             @click="handleClick()"
             :disabled="disabled">
-        <i v-if="isIcon" :class="['vr-icon',isIcon,{'is-spin':loading}]"
-         ></i>
+        <i v-if="isIcon" :class="['vr-icon',isIcon,{'is-spin':loading}]"></i>
         <span v-if="$slots.default">
             <slot></slot>
         </span>
@@ -63,7 +62,7 @@
                return this.disabled ? false : this.ripple;
            },
            isIcon(){
-               return this.loading ? "vr-loader-4-line" :this.icon;
+               return this.loading ? "vr-loading" :this.icon;
            }
        },
        methods:{
