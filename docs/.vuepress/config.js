@@ -36,7 +36,7 @@ module.exports = {
                         children:[
                             '/pages/component/Button',
                             '/pages/component/Icon',
-                            '/pages/component/link'
+                            '/pages/component/Link'
                         ]
                     }
                 ]

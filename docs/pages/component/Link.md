@@ -12,31 +12,31 @@
 ```html
 <template>
     <div>
-        <div>
+        <a>
             <vr-link href="\" target="_blank">默认链接</vr-link>
             <vr-link type="primary">主要链接</vr-link>
             <vr-link type="success">成功链接</evr-link>
             <vr-link type="warning">警告链接</vr-link>
             <vr-link type="danger">危险链接</vr-link>
             <vr-link type="info">信息链接</vr-link>
-        </div>
-        <div>
+        </a>
+        <a>
             <vr-link disabled>默认链接</vr-link>
             <vr-link type="primary" disabled>主要链接</vr-link>
             <vr-link type="success" disabled>成功链接</vr-link>
             <vr-link type="warning" disabled>警告链接</vr-link>
             <vr-link type="danger" disabled>危险链接</vr-link>
             <vr-link type="info" disabled>信息链接</vr-link>
-        </div>
-        <div>
+        </a>
+        <a>
             <vr-link :underline="false">无下划线</vr-link>
             <vr-link>有下划线</vr-link>
-        </div>
-        <div>
-            <vr-link icon="el-icon-edit">编辑</vr-link>
+        </a>
+        <a>
+            <vr-link>查看<i class="el-icon-view el-icon--left"></i> </vr-link>
             <vr-link>查看<i class="el-icon-view el-icon--right"></i> </vr-link>
-        </div>
-    </div>   
+        </a>
+    </div>
 </template>
 
 ```
@@ -53,14 +53,14 @@
 ```html
 <template>
     <div>
-        <div>
+        <a>
             <vr-link disabled>默认链接</vr-link>
             <vr-link type="primary" disabled>主要链接</vr-link>
             <vr-link type="success" disabled>成功链接</vr-link>
             <vr-link type="warning" disabled>警告链接</vr-link>
             <vr-link type="danger" disabled>危险链接</vr-link>
             <vr-link type="info" disabled>信息链接</vr-link>
-        </div>
+        </a>
     </div>
 </template>
 
@@ -79,10 +79,10 @@
 ```html
 <template>
     <div>
-        <div>
+        <a>
             <vr-link :underline="false">无下划线</vr-link>
             <vr-link>有下划线</vr-link>
-        </div>
+        </a>
     </div>
 </template>
 
@@ -101,10 +101,10 @@
 ```html
 <template>
     <div>
-        <div>
-            <vr-link icon="el-icon-edit">编辑</vr-link>
+        <a>
+            <vr-link>查看<i class="el-icon-view el-icon--left"></i> </vr-link>
             <vr-link>查看<i class="el-icon-view el-icon--right"></i> </vr-link>
-        </div>
+        </a>
     </div>
 </template>
 

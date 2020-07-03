@@ -1,52 +1,48 @@
 <template>
-    <h5
-            class="vr-link"
-            :class="[`vr-link--${type}`]"
-            @click="handleClick()"
-            :disabled="disabled">
-        <i v-if="isIcon" :class="['vr-icon',icon]"></i>
-        <span v-if="$slots.default">
-            <slot></slot>
-        </span>
-    </h5>
+    <a
+          class="vr-link"
+          :class="[`vr-link--${type}`]"
+          :disabled = 'is-disabled',
+          :underline && !disabled = 'is-underline'
+        :href="disabled ? null : href"
+        v-bind="$attrs"
+        @click="handleClick()"
+    >
+
+    <i :class="icon" v-if="icon"></i>
+
+    <span v-if="$slots.default" class="vr-link--inner">
+      <slot></slot>
+    </span>
+
+    <template v-if="$slots.icon"><slot v-if="$slots.icon" name="icon"></slot></template>
+    </a>
 </template>
 
 <script>
     export default {
       name: "VrLink",
-      props:{
-        type:{
-          type:String,
-          default:"default"
-        },
-        disabled:{
-          type:Boolean,
-          default:false
-        },
-        underline:{
-          type:Boolean,
-          default:true
-        },
-        icon: {
+      props: {
+        type: {
           type: String,
-          default: ""
+          default: 'default'
         },
-        href:{
-          type:String,
-          default:""
-        }
-      },
-      computed:{
-        isRipper(){
-          return this.disabled ? false : this.ripple;
+        underline: {
+          type: Boolean,
+          default: true
         },
-        isIcon(){
-          return this.loading ? "vr-loading" :this.icon;
-        }
+        disabled: Boolean,
+        href: String,
+        icon: String
       },
-      methods:{
-        handleClick(e) {
-          this.$emit("click", e);
+      methods: {
+        // 注解4
+        handleClick(event) {
+          if (!this.disabled) {
+            if (!this.href) {
+              this.$emit('click', event);
+            }
+          }
         }
       }
     }
@@ -54,62 +50,71 @@
 
 <style lang="scss" scoped>
     .vr-link{
-        display: inline-block;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        position: relative;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0;
         font-size: 16px;
     }
-    .vr-link--primary {
-        color: #fff;
-        background-color: #409eff;
-        border-color: #409eff;
-        &:hover,
-        &:focus {
-            background: #66b1ff;
-            border-color: #66b1ff;
-            color: #fff;
+    .vr-link--primary{
+        color: #409eff;
+    }
+    .vr-link--success{
+        color: #409eff;
+    }
+    .vr-link--info{
+        color: #409eff;
+    }
+    .vr-link--warning{
+        color: #409eff;
+    }
+    .vr-link--danger{
+        color: #409eff;
+    }
+    $typeMap: (
+            primary: $--link-primary-font-color,
+            danger: $--link-danger-font-color,
+            success: $--link-success-font-color,
+            warning: $--link-warning-font-color,
+            info: $--link-info-font-color);
+
+    @each $type, $primaryColor in $typeMap {
+        &.el-link--#{$type} {
+            color: $primaryColor;
+            &:hover {
+                color: mix($primaryColor, $--color-white, 80%)
+            }
+            &:after {
+                border-color: $primaryColor
+            }
+            @include when(disabled) {
+                color: mix($primaryColor, $--color-white, 50%)
+            }
+            @include when(underline) {
+                &:hover:after {
+                    border-color: $primaryColor
+                }
+            }
         }
     }
-    .vr-link--success {
-        color: #fff;
-        background-color: #67c23a;
-        border-color: #67c23a;
-        &:hover,
-        &:focus {
-            background: #85ce61;
-            border-color: #85ce61;
-            color: #fff;
-        }
+    @include when(disabled) {
+        cursor: not-allowed;
     }
-    .vr-link--info {
-        color: #fff;
-        background-color: #909399;
-        border-color: #909399;
-        &:hover,
-        &:focus {
-            background: #a6a9ad;
-            border-color: #a6a9ad;
-            color: #fff;
-        }
-    }
-    .vr-link--warning {
-        color: #fff;
-        background-color: #e6a23c;
-        border-color: #e6a23c;
-        &:hover,
-        &:focus {
-            background: #ebb563;
-            border-color: #ebb563;
-            color: #fff;
-        }
-    }
-    .vr-link--danger {
-        color: #fff;
-        background-color: #f56c6c;
-        border-color: #f56c6c;
-        &:hover,
-        &:focus {
-            background: #f78989;
-            border-color: #f78989;
-            color: #fff;
+    @include when(underline) {
+        &:hover:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 0;
+            bottom: 0;
+            border-bottom: 1px solid $--link-default-active-color
         }
     }
 </style>
