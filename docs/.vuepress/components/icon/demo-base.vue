@@ -1,8 +1,5 @@
 <template>
     <div>
-        <div class="list">
-
-        </div>
         <ul class="icon-list">
             <li v-for="(icon,index) in list" :key="index">
             <span>
