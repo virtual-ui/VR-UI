@@ -115,6 +115,21 @@
  <button-demo-icon></button-demo-icon>
 </ClientOnly>
 
+::: details 查看你代码
+```html
+<template>
+    <div>
+        <div class="list">
+            <vr-button icon="vr-home">按钮</vr-button>
+            <vr-button icon="vr-home" type="primary">按钮</vr-button>
+            <vr-button icon="vr-home" type="success">按钮</vr-button>
+            <vr-button icon="vr-home" type="info">按钮</vr-button>
+            <vr-button icon="vr-home" type="warning">按钮</vr-button>
+            <vr-button icon="vr-home" type="danger">按钮</vr-button>
+        </div>
+    </div>
+</template>
+```
 
 ## 按钮组
 以按钮组的方式出现，常用于多项类似操作。
@@ -123,9 +138,46 @@
  <button-demo-group></button-demo-group>
 </ClientOnly>
 
+::: details 查看代码
+```html
+<template>
+    <div>
+        <div class="list">
+           <vr-button-group>
+               <vr-button type="primary">按钮1</vr-button>
+               <vr-button type="primary">按钮2</vr-button>
+           </vr-button-group>
+            <vr-button-group>
+               <vr-button >按钮1</vr-button>
+               <vr-button type="primary">按钮2</vr-button>
+               <vr-button type="primary">按钮2</vr-button>
+           </vr-button-group>
+        </div>
+    </div>
+</template>
+```
+:::
+
 ## 加载中
 点击按钮后进行数据加载操作，在按钮上显示加载状态。
 
 <ClientOnly>
  <button-demo-loading></button-demo-loading>
-</ClientOnly>
+</ClientOnly>   
+
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <div class="list">
+            <vr-button loading>默认按钮</vr-button>
+            <vr-button type="primary" loading>主要按钮</vr-button>
+            <vr-button type="success" loading>成功按钮</vr-button>
+            <vr-button type="info" loading>信息按钮</vr-button>
+            <vr-button type="warning" loading>警告按钮</vr-button>
+            <vr-button type="danger" loading>危险按钮</vr-button>
+        </div>
+    </div>
+</template>
+```

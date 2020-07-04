@@ -1,0 +1,57 @@
+<template>
+<div>123</div>
+</template>
+<script>
+    export default {
+        name:"VrCol",
+        props:{
+            offset:{
+                type:Number,
+                default:0
+            },
+            order:{
+                type:Number,
+                default:0
+            },
+            pull:{
+                type:Number,
+                default:0
+            },
+            push:{
+                type:Number,
+                default:0
+            },
+            span:{
+                type:Number,
+                default:null
+            },
+            xs:{
+                type:[Number,Object],
+                default:()=>{}
+            },
+            sm:{
+                type:[Number,Object],
+                default:()=>{}
+            },
+            md:{
+                type:[Number,Object],
+                default:()=>{}
+            },
+            lg:{
+                type:[Number,Object],
+                default:()=>{}
+            },
+            xl:{
+                type:[Number,Object],
+                default:()=>{}
+            },
+            xxl:{
+                type:[Number,Object],
+                default:()=>{}
+            }
+        }
+    }
+</script>
+<style lang="scss" scoped>
+
+</style>

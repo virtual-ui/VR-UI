@@ -1,9 +1,11 @@
 import buttonList from './button';
 import link from './link';
 import icon from './icon'
+import grid from './gird';
 // 所有组件列表
 const components = [
     ...buttonList,
+    ...grid,
     link,
     icon
 ]
