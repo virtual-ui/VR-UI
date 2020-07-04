@@ -19,7 +19,7 @@ module.exports = {
         sidebar: [
             {
                 title: '开发指南',
-                collapsable: false,
+                // collapsable: false,
                 children: [
                     '/pages/guide/Home',
                     '/pages/guide/Introduce',
@@ -28,11 +28,11 @@ module.exports = {
             },
             {
                 title:"组件",
-                collapsable: false,
+                // collapsable: false,
                 children:[
                     {
                         title:'通用',
-                        collapsable: false,
+                        // collapsable: false,
                         children:[
                             '/pages/component/Button',
                             '/pages/component/Icon',
