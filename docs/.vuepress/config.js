@@ -16,7 +16,11 @@ module.exports = {
                     { text: 'py-hang', link: 'https://github.com/py-hang'},
                     { text: 'chenxinhong-del', link: 'https://github.com/chenxinhong-del' },
             ]},
-            { text: '资源', link: '/pages/guide/source' },
+            { text: '资源',
+                items:[
+                    {text:'插件 Plugins',link:'/pages/source/plugins'},
+                    {text:'特效 effect',link:'/pages/source/effect'},
+            ]},
             { text: '文档', link: 'http://github.com/virtual-ui/VR-UI.git' },
             { text: 'GitHab', link: 'https://github.com/virtual-ui/VR-UI.git' }
         ],
@@ -40,6 +44,14 @@ module.exports = {
                             '/pages/component/Button',
                             '/pages/component/Icon',
                             '/pages/component/Link'
+                        ]
+                    },
+                    {
+                        title:'布局',
+                        collapsable:false,
+                        children:[
+                            '/pages/component/Layout',
+                            '/pages/component/Grid'
                         ]
                     }
                 ]

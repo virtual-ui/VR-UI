@@ -1,29 +1,29 @@
 # VR-UI
-virtual-ui组件库，两个前端菜鸟# virtual-ui
+#### virtual-ui组件库，两个前端菜鸟# virtual-ui
 
-## Project setup
+## 项目起步
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 项目热更新启动
 ```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+npm run docs:dev
 ```
 
-### Run your unit tests
+### 项目库模式打包
+```
+npm run lib
+```
+
+### npm发布
+```
+npm publish
+```
+
+### 项目单元测试
 ```
 npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
 ```
 
 ### Customize configuration
