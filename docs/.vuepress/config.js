@@ -11,8 +11,12 @@ module.exports = {
     themeConfig: {
         logo: '/images/logo.png',
         nav: [
-            { text: '首页', link: '/pages/guide/Home' },
-            { text: '指南', link: '/pages/guide/' },
+            {text:'作者',
+                items: [
+                    { text: 'py-hang', link: 'https://github.com/py-hang'},
+                    { text: 'chenxinhong-del', link: 'https://github.com/chenxinhong-del' },
+            ]},
+            { text: '资源', link: '/pages/guide/source' },
             { text: '文档', link: 'http://github.com/virtual-ui/VR-UI.git' },
             { text: 'GitHab', link: 'https://github.com/virtual-ui/VR-UI.git' }
         ],
@@ -21,7 +25,6 @@ module.exports = {
                 title: '开发指南',
                 // collapsable: false,
                 children: [
-                    '/pages/guide/Home',
                     '/pages/guide/Introduce',
                     '/pages/guide/GetStart',
                 ]

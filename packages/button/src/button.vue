@@ -2,11 +2,11 @@
     <button
             class="vr-button"
             :class="[`vr-button--${type}`,
-            {'is-plain':plain,'is-round':round,'is-circle':circle,'ripple':isRipper,'is-flat':flat},
+            {'is-plain':plain,'is-round':round,'is-circle':circle,'ripple':isRipper,'is-flat':flat,'is-loading':loading},
             `vr-button--${size}`]"
             @click="handleClick()"
             :disabled="disabled">
-        <i v-if="isIcon" :class="['vr-icon',icon]"></i>
+        <i v-if="isIcon" :class="['vr-icon',isIcon,{'is-spin':loading}]"></i>
         <span v-if="$slots.default">
             <slot></slot>
         </span>
@@ -73,6 +73,7 @@
    }
 </script>
 <style lang="scss" scoped>
+    @import "../../assets/style/common/common.scss";
     .vr-icon {
         display: inline-block;
         font-family: "vr-icon" !important;
@@ -114,6 +115,10 @@
             cursor: not-allowed;
             opacity: 0.5;
         }
+    }
+    //按钮loading时的样式
+    .vr-button.is-loading{
+        opacity: 0.5;
     }
     // 按钮类型
     .vr-button--primary {

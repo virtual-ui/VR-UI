@@ -12,16 +12,16 @@
   > -->
     <a
         class="vr-link"
-        :class="[`vr-link--${type}`]"
+        :class="[`vr-link--${type}`,
+        {'is-underline':underline,'is-icon':icon,'is-href':href}
+        ]"
         @click="handleClick()"
         :disabled="disabled"
     >
-    <i :class="icon" v-if="icon"></i>
-    <span v-if="$slots.default" class="vr-link--inner">
-      <slot></slot>
+     <i v-if="isIcon" :class="['vr-icon',isIcon,{'is-spin':loading}]"></i>
+    <span v-if="$slots.default">
+        <slot></slot>
     </span>
-
-    <template v-if="$slots.icon"><slot v-if="$slots.icon" name="icon"></slot></template>
   </a>
 </template>
 
@@ -30,33 +30,53 @@ export default {
     name: 'VrLink',
     props: {
         type: {
-        type: String,
-        default: 'default'
-        },
-        underline: {
-        type: Boolean,
-        default: true
+            type: String,
+            default: 'default'
         },
         disabled:{
             type:Boolean,
             default:false
         },
-        href: String,
-        icon: String
-    },
-    methods: {
-        handleClick(event) {
-            if (!this.disabled) {
-                if (!this.href) {
-                this.$emit('click', event);
+        underline:{
+            type:Boolean,
+            default:false
+        },
+        icon: {
+            type: String,
+            default: ""
+        },
+        href:{
+            type:String,
+            default:""
+        },
+         computed:{
+           isRipper(){
+               return this.disabled ? false : this.ripple;
+           }
+       },
+        methods: {
+            handleClick(event) {
+                if (!this.disabled) {
+                    if (!this.href) {
+                    this.$emit('click', event);
+                    }
                 }
             }
         }
     }
-};
+}
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/style/common/common.scss";
+    .vr-icon {
+        display: inline-block;
+        font-family: "vr-icon" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
     .vr-link{
         display: inline-flex;
         flex-direction: row;
@@ -69,20 +89,43 @@ export default {
         cursor: pointer;
         padding: 0;
         font-size: 16px;
+        &:focus {
+            color: #409eff;
+            background-color: #ecf5ff;
+        }
+        &:disabled{
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
     }
     .vr-link--primary{
         color: #409eff;
     }
+    .vr-link--primary.is-underline{
+        text-decoration: underline;
+    }
     .vr-link--success{
         color: #67c23a;
+    }
+    .vr-link--success.is-underline{
+        text-decoration: underline;
     }
     .vr-link--info{
         color: #909399;
     }
+    .vr-link--info.is-underline{
+        text-decoration: underline;
+    }
     .vr-link--warning{
         color: #e6a23c;
     }
+    .vr-link--warning.is-underline{
+        text-decoration: underline;
+    }
     .vr-link--danger{
         color: #f56c6c;
+    }
+    .vr-link--danger.is-underline{
+        text-decoration: underline;
     }
 </style>
