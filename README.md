@@ -1,5 +1,5 @@
 # VR-UI
-#### virtual-ui组件库，两个前端菜鸟# virtual-ui
+#### virtual-ui组件库，两个前端菜鸟
 
 ## 项目起步
 ```
