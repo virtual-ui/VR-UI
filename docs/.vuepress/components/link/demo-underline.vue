@@ -1,9 +1,9 @@
 
 <template>
-    <a>
+    <div>
         <vr-link :underline="false">无下划线</vr-link>
-        <vr-link>有下划线</vr-link>
-    </a>
+        <vr-link :underline="true">有下划线</vr-link>
+    </div>
 </template>
 
 <script>

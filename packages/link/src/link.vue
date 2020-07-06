@@ -12,13 +12,11 @@
   > -->
     <a
         class="vr-link"
-        :class="[`vr-link--${type}`,
-        {'is-underline':underline,'is-icon':icon,'is-href':href}
-        ]"
+        :class="[`vr-link--${type}`]"
         @click="handleClick()"
         :disabled="disabled"
     >
-     <i v-if="isIcon" :class="['vr-icon',isIcon,{'is-spin':loading}]"></i>
+     <i v-if="isIcon" :class="['vr-icon',isIcon]"></i>
     <span v-if="$slots.default">
         <slot></slot>
     </span>
@@ -49,20 +47,26 @@ export default {
             type:String,
             default:""
         },
-         computed:{
-           isRipper(){
-               return this.disabled ? false : this.ripple;
+        computed:{
+           isIcon(){
+               return this.disabled ? "vr-edit" : this.icon;
+               return this.disabled ? "vr-eye" : this.icon;
            }
        },
-        methods: {
-            handleClick(event) {
-                if (!this.disabled) {
-                    if (!this.href) {
-                    this.$emit('click', event);
-                    }
-                }
-            }
-        }
+       methods: {
+           handleClick(e) {
+               this.$emit("click", e);
+           }
+       }
+        // methods: {
+        //     handleClick(event) {
+        //         if (!this.disabled) {
+        //             if (!this.href) {
+        //             this.$emit('click', event);
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
 </script>
@@ -89,10 +93,8 @@ export default {
         cursor: pointer;
         padding: 0;
         font-size: 16px;
-        &:focus {
-            color: #409eff;
-            background-color: #ecf5ff;
-        }
+        /* 禁止元素的文字被选中； */
+        &:hover,
         &:disabled{
             cursor: not-allowed;
             opacity: 0.5;
@@ -101,31 +103,29 @@ export default {
     .vr-link--primary{
         color: #409eff;
     }
-    .vr-link--primary.is-underline{
-        text-decoration: underline;
-    }
     .vr-link--success{
         color: #67c23a;
-    }
-    .vr-link--success.is-underline{
-        text-decoration: underline;
     }
     .vr-link--info{
         color: #909399;
     }
-    .vr-link--info.is-underline{
-        text-decoration: underline;
-    }
     .vr-link--warning{
         color: #e6a23c;
-    }
-    .vr-link--warning.is-underline{
-        text-decoration: underline;
     }
     .vr-link--danger{
         color: #f56c6c;
     }
-    .vr-link--danger.is-underline{
-        text-decoration: underline;
+    // button中icon和文字同时存在，设置margin值
+    .vr-link [class*="fyy-icon-"] + span {
+        margin-left: 5px;
+    }
+    .icon:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        top: 0;
+        left: 0;
     }
 </style>

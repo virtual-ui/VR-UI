@@ -60,7 +60,7 @@
 <template>
     <div>
         <vr-link :underline="false">无下划线</vr-link>
-        <vr-link>有下划线</vr-link>
+        <vr-link :underline="true">有下划线</vr-link>
     </div>
 </template>
 
@@ -79,8 +79,8 @@
 ```html
 <template>
     <div>
-        <vr-link icon="el-icon-edit">编辑</vr-link>
-        <vr-link>查看<i class="el-icon-view el-icon--right"></i> </vr-link>
+        <vr-link icon="vr-edit">编辑</vr-link>
+        <vr-link>查看<i icon="vr-eye"></i> </vr-link>
     </div>
 </template>
 

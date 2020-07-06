@@ -1,17 +1,18 @@
 
 <template>
-    <a>
-        <vr-link icon="el-icon-edit">编辑</vr-link>
-        <vr-link>查看<i class="el-icon-view el-icon--right"></i></vr-link>
-    </a>
+    <div>
+        <vr-link icon="vr-edit">编辑</vr-link>
+        <vr-link icon="vr-eye">查看</vr-link>
+    </div>
 </template>
 
 <script>
    import Link from '../../../../packages/link/src/link'
     export default {
         name: 'link-demo-icon',
+        link:[],
         components: {
-            [Link.name]: Link,
+            [Link.name]: Link
         }
     }
 </script>
