@@ -338,7 +338,7 @@
         padding: 12px;
     }
     // button中icon和文字同时存在，设置margin值
-    .vr-button [class*="fyy-icon-"] + span {
+    .vr-button [class*="vr-icon"] + span {
         margin-left: 5px;
     }
     //波紋效果

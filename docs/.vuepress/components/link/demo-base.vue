@@ -21,5 +21,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+    .vr-link{
+        margin: 0 5px;
+    }
 </style>

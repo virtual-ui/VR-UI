@@ -10,7 +10,6 @@
    import Link from '../../../../packages/link/src/link'
     export default {
         name: 'link-demo-icon',
-        link:[],
         components: {
             [Link.name]: Link
         }
@@ -18,5 +17,7 @@
 </script>
 
 <style lang="scss" scoped>
-    
+    .vr-link{
+        margin: 0 10px;
+    }
 </style>

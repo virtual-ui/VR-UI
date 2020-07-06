@@ -44,7 +44,22 @@
 
 ::: details 查看代码
 ```html
-
+<template>
+    <div>
+        <vr-row :gutter="[16]">
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+        </vr-row>
+        <vr-row :gutter="16">
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+            <vr-col :span="6">col</vr-col>
+        </vr-row>
+    </div>
+</template>
 ```
 :::
 

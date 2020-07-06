@@ -80,7 +80,7 @@
 <template>
     <div>
         <vr-link icon="vr-edit">编辑</vr-link>
-        <vr-link>查看<i icon="vr-eye"></i> </vr-link>
+        <vr-link icon="vr-eye">查看</vr-link>
     </div>
 </template>
 
