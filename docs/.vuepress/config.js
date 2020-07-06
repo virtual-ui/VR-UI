@@ -50,8 +50,8 @@ module.exports = {
                         title:'布局',
                         collapsable:false,
                         children:[
-                            '/pages/component/Layout',
-                            '/pages/component/Grid'
+                            '/pages/component/Grid',
+                            '/pages/component/Layout'
                         ]
                     }
                 ]

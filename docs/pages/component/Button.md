@@ -108,7 +108,7 @@
 ```
 :::
 
-# 图标按钮
+## 图标按钮
 带图标的按钮可增强辨识度（有文字）或节省空间（无文字）。
 
 <ClientOnly>
@@ -130,6 +130,26 @@
     </div>
 </template>
 ```
+:::
+
+## 按钮尺寸
+
+<ClientOnly>
+ <button-demo-size></button-demo-size>
+</ClientOnly>
+
+::: details 查看你代码
+```html
+<template>
+    <div>
+        <vr-button type="primary" size="large">按钮</vr-button>
+        <vr-button type="primary" size="middle">按钮</vr-button>
+        <vr-button type="primary" size="small">按钮</vr-button>
+        <vr-button type="primary" size="mini">按钮</vr-button>
+    </div>
+</template>
+```
+:::
 
 ## 按钮组
 以按钮组的方式出现，常用于多项类似操作。

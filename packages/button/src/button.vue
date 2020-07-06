@@ -313,19 +313,19 @@
     }
     //按钮大小
     .vr-button--mini{
-        padding: 6px 10px;
+        padding: 4px 10px;
         font-size: 12px;
     }
     .vr-button--small{
-        padding: 8px 12px;
+        padding: 6px 12px;
         font-size:14px
     }
     .vr-button--middle{
-        padding: 10px 16px;
+        padding: 8px 14px;
         font-size: 16px;
     }
     .vr-button--large{
-        padding: 12px 20px;
+        padding: 10px 16px;
        font-size: 18px;
     }
     // 圆角
