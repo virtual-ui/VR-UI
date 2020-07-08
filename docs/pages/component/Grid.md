@@ -66,8 +66,67 @@
 ## Flex 对齐方式
 分栏之间存在间隔。
 
+<ClientOnly>
+<grid-demo-flex-align></grid-demo-flex-align>  
+</ClientOnly>
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <vr-row type="flex" justify="center" align="top">
+            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        </vr-row>
+        <vr-row type="flex" justify="center" align="bottom">
+            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        </vr-row>
+        <vr-row  type="flex" justify="center" align="midddle">
+            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
+            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        </vr-row>
+    </div>
+</template>
+```
+:::
+
+
 ## Flex排序
 分栏之间存在间隔。
+
+<ClientOnly>
+<grid-demo-flex-order></grid-demo-flex-order>  
+</ClientOnly>
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <vr-row>
+            <vr-col span=6 order={4}>
+                <div class="content">1 vr-col-order-4</div>
+            </vr-col>
+            <vr-col span=6 order={3}}>
+                <div class="content">2 vr-col-order-3</div>
+            </vr-col>
+            <vr-col span=6 order={2}>
+                <div class="content">3 vr-col-order-2</div>
+                </vr-col>
+            <vr-col span=6 order={1}>
+                <div class="content">4 vr-col-order-1</div>
+            </vr-col>
+        </vr-row>
+    </div>
+</template>
+```
+:::
 
 ## 左右偏移
 分栏之间存在间隔。
