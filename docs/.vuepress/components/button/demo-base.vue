@@ -9,7 +9,7 @@
             <vr-button type="danger">危险按钮</vr-button>
         </div>
         <div class="list">
-             <vr-button>朴素按钮</vr-button>
+             <vr-button plain>朴素按钮</vr-button>
              <vr-button type="primary" plain>主要按钮</vr-button>
              <vr-button type="success" plain>成功按钮</vr-button>
              <vr-button type="info" plain>信息按钮</vr-button>
