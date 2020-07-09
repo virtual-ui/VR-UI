@@ -108,19 +108,19 @@
 ::: details 查看代码
 ```html
 <template>
-    <div>
-        <vr-row>
-            <vr-col span=6 order={4}>
-                <div class="content">1 vr-col-order-4</div>
+    <div>       
+        <vr-row type="flex">
+            <vr-col :span="6" :order="4">
+                <div class="content">1 | vr-col-order-4</div>
             </vr-col>
-            <vr-col span=6 order={3}}>
-                <div class="content">2 vr-col-order-3</div>
+            <vr-col :span="6" :order="3">
+                <div class="content">2 | vr-col-order-3</div>
             </vr-col>
-            <vr-col span=6 order={2}>
-                <div class="content">3 vr-col-order-2</div>
-                </vr-col>
-            <vr-col span=6 order={1}>
-                <div class="content">4 vr-col-order-1</div>
+            <vr-col :span="6" :order="2">
+                <div class="content">3 | vr-col-order-2</div>
+            </vr-col>
+            <vr-col :span="6" :order="1">
+                <div class="content">4 | vr-col-order-1</div>
             </vr-col>
         </vr-row>
     </div>
@@ -131,8 +131,74 @@
 ## 左右偏移
 分栏之间存在间隔。
 
+<ClientOnly>
+<grid-demo-offset></grid-demo-offset>  
+</ClientOnly>
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <vr-row :gutter="20">
+            <vr-col :span="8"><div class="content">col-8</div></vr-col>
+            <vr-col :span="8" :offset="8"><div class="content">col-8 | offset-8</div></vr-col>
+        </vr-row>
+        <br>
+        <vr-row :gutter="20">
+            <vr-col :span="6" :offset="8"><div class="content">col-6 | offset-8</div></vr-col>
+            <vr-col :span="6" :offset="4"><div class="content">col-6 | offset-4</div></vr-col>
+        </vr-row>
+        <br>
+        <vr-row :gutter="20">
+            <vr-col :span="12" :offset="8"><div class="content">col-12 | offset-8</div></vr-col>
+        </vr-row>
+    </div>
+</template>
+```
+:::
+
 ## 响应式布局
 分栏之间存在间隔。
 
+<ClientOnly>
+<grid-demo-bootstrap></grid-demo-bootstrap>  
+</ClientOnly>
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <vr-row :gutter="10">
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
+        </vr-row>
+    </div>
+</template>
+```
+:::
+
 ## 栅格排序
 分栏之间存在间隔。
+
+<ClientOnly>
+<grid-demo-push-pull></grid-demo-push-pull>  
+</ClientOnly>
+
+::: details 查看代码
+```html
+<template>
+    <div>
+        <vr-row>
+            <vr-col :span="18" :push="6">
+               <div class="content">col-18 | push-6</div>
+            </vr-col>
+            <vr-col :span="6" :pull="18">
+                <div class="content">col-6 | pull-18</div>
+            </vr-col>
+        </vr-row>
+    </div>
+</template>
+```
+:::

@@ -2,12 +2,14 @@ import button from './button';
 import buttonList from './button';
 import link from './link';
 import icon from './icon'
-import grid from './gird';
+import grid from './grid';
+import layout from './layout';
 // 所有组件列表
 const components = [
     ...button,
     ...buttonList,
     ...grid,
+    ...layout,
     link,
     icon
 ]

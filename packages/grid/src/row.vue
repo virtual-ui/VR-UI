@@ -1,6 +1,7 @@
 <script>
     export default {
         name:"VrRow",
+        componentName: 'VrRow',
         props:{
             type:{
                 type:String,

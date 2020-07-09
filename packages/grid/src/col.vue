@@ -54,7 +54,7 @@
         computed:{
             gutter(){
                 let parent = this.$parent;
-                while(parent && parent.$options._componentTag !== 'vr-row'){
+                while(parent && parent.$options.componentName !== 'VrRow'){
                     parent = parent.$parent;
                 }
                 return parent ? parent.gutter :0;
@@ -83,7 +83,7 @@
                             style[key] = gutter / 2 + 'px';
                         });
                         break;
-                    case "[object Object]":
+                    case "[object Object]":  
                         break;
                     case "[object Array]":
                         if(!gutter.length || gutter.length > 2){

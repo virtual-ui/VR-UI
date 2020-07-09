@@ -41,8 +41,8 @@
     </div>
 </template>
 <script>
-    import Row from '../../../../packages/gird/src/row';
-    import Col from '../../../../packages/gird/src/col';
+    import Row from '../../../../packages/grid/src/row';
+    import Col from '../../../../packages/grid/src/col';
     export default {
         name:"grid-demo-base",
         components:{
