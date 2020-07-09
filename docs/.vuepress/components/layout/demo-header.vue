@@ -1,27 +1,27 @@
 <template>
     <div class="layout">
-        <header mode="horizontal" theme="dark" active-key="1">
+        <header >
             <div class="layout-logo"></div>
             <div class="layout-nav">
                 <span key="1">
-                    <vr-icon type="ios-navigate"></vr-icon>
+                    <vr-icon type="vr-paper-plane"></vr-icon>
                     导航一
                 </span>
                 <span key="2">
-                    <vr-icon type="ios-keypad"></vr-icon>
+                    <vr-icon type="vr-paper-plane"></vr-icon>
                     导航二
                 </span>
                 <span key="3">
-                    <vr-icon type="ios-analytics"></vr-icon>
+                    <vr-icon type="vr-paper-plane"></vr-icon>
                     导航三
                 </span>
                 <span key="4">
-                    <vr-icon type="ios-paper"></vr-icon>
+                    <vr-icon type="vr-paper-plane"></vr-icon>
                     导航四
                 </span>
             </div>
         </header>
-        <header mode="horizontal" active-key="1">
+        <header >
             <div class="layout-assistant">
                 <span key="1">二级导航</span>
                 <span key="2">二级导航</span>
@@ -53,7 +53,6 @@
     export default {
         name:"layout-demo-header",
         components:{
-            [Layout.name]:Layout,
             [Header.name]:Header,
             [Sider.name]:Sider,
             [Content.name]:Content,

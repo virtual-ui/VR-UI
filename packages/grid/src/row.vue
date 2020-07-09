@@ -48,7 +48,7 @@
                 return ret;
             }
         },
-        render(h){
+        render(h){  
             return h(this.tag,{
                 class:[
                     'vr-row',
@@ -59,7 +59,7 @@
                     ...this.style
                 }
             },this.$slots.default);
-        },
+        }
     }
 </script>
 <style lang="scss" scoped>
