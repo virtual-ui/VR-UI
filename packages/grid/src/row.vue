@@ -2,65 +2,51 @@
     export default {
         name:"VrRow",
         componentName: 'VrRow',
-        props:{
-            type:{
-                type:String,
-                default:""
+        props: {
+            tag: {
+                type: String,
+                default: 'div'
             },
-            gutter:{
-                type:[Number,Object,Array],
-                default: 0
+            gutter: Number,
+            type: String,
+            justify: {
+                type: String,
+                default: 'start'
             },
-            justify:{
-                type:String,
-                default:"start"
-            },
-            align:{
-                type:String,
-                default:"top"
-            },
-            tag:{
-                type:String,
-                default:"div"
+            align: {
+                type: String,
+                default: 'top'
             }
         },
+
         computed: {
             style() {
-                const ret = {
-                    marginLeft:"",
-                    marginRight:""
-                };
-                let type = Object.prototype.toString.call(this.gutter)
-                switch (type) {
-                    case "[object Number]":
-                        ret.marginLeft = `-${this.gutter / 2}px`;
-                        ret.marginRight = ret.marginLeft;
-                        break;
-                    case "[object Object]":
-                        break;
-                    case "[object Array]":
-                        ret.marginLeft = `-${(this.gutter[1]||this.gutter[0]) / 2}px`;
-                        ret.marginRight = ret.marginLeft;
-                        break;
-                    default:
-                        return;
-                }
-                return ret;
+            const ret = {};
+
+            if (this.gutter) {
+                ret.marginLeft = `-${this.gutter / 2}px`;
+                ret.marginRight = ret.marginLeft;
+            }
+
+            return ret;
             }
         },
-        render(h){  
-            return h(this.tag,{
-                class:[
-                    'vr-row',
-                    `vr-row-${this.type}`,
-                    `vr-row-flex-${this.align}`
-                ],
-                style:{
-                    ...this.style
-                }
-            },this.$slots.default);
+
+        render(h) {
+            return h(this.tag, {
+            class: [
+                'vr-row',
+                `vr-row-${this.type}`,
+                `vr-row-flex-${this.justify}`,
+                `vr-row-flex-${this.align}`
+                // this.justify !== 'start' ? `is-justify-${this.justify}` : '',
+                // this.align !== 'top' ? `is-align-${this.align}` : '',
+                // { 'vr-row-flex': this.type === 'flex' }
+            ],
+            style: this.style
+            }, this.$slots.default);
         }
-    }
+};
 </script>
 <style lang="scss" scoped>
    .vr-row{
@@ -74,6 +60,24 @@
        text-align: center;
        &-flex{
            display: flex;
+           &-start{
+               justify-content: flex-start;
+           }
+           &-center{
+               justify-content: center;
+           }
+           &-end{
+               justify-content: flex-end;
+           }
+           &-space-between{
+                justify-content: space-between;
+           }
+           &-space-around{
+                justify-content: space-around;
+           }
+           &-space-evenly{
+                justify-content: space-evenly;
+           }
            &-top{
                align-items: flex-start;
            }
@@ -92,4 +96,14 @@
            content: "";
        }
    }
+
+    @for $i from 0 through 24 {
+        $cnum: ($i + 1) * 2;
+        .vr-row-gutter-#{$cnum} {
+            margin-left: -#{$cnum / 2}px; margin-right: -#{$cnum / 2}px;
+            [class*="vr-col-"] {
+            padding-left: #{$cnum / 2}px; padding-right: #{$cnum / 2}px;
+            }
+        }
+    }
 </style>

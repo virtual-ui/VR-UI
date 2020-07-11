@@ -1,17 +1,11 @@
 <template>
-    <div>       
-        <vr-row type="flex">
-            <vr-col :span="6" :order="4">
-                <div class="content">1 | vr-col-order-4</div>
+    <div>
+        <vr-row class="row-bg">
+            <vr-col :span="6" :pull="12">
+                <div style="background:rgba(153,51,102,.7); padding:10px;">col-6 | pull-12</div>
             </vr-col>
-            <vr-col :span="6" :order="3">
-                <div class="content">2 | vr-col-order-3</div>
-            </vr-col>
-            <vr-col :span="6" :order="2">
-                <div class="content">3 | vr-col-order-2</div>
-            </vr-col>
-            <vr-col :span="6" :order="1">
-                <div class="content">4 | vr-col-order-1</div>
+            <vr-col :span="12" :push="6">
+               <div style="background:rgba(153,51,102,.7); padding:10px;">col-12 | push-6</div>
             </vr-col>
         </vr-row>
     </div>
@@ -21,7 +15,7 @@
     import Row from '../../../../packages/grid/src/row';
     import Col from '../../../../packages/grid/src/col';
     export default {
-        name:"grid-demo-flex-order",
+        name:"grid-demo-pull-push",
         components:{
             [Row.name]:Row,
             [Col.name]:Col,
@@ -46,9 +40,10 @@
             &:nth-child(even){
                 background:rgba(204,102,153,.7);
             }
-            &-order{
-                display: flex;
-            }
         }
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
     }
 </style>

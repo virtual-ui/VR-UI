@@ -1,0 +1,249 @@
+/* Break-point
+--------------------------*/
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+
+$--breakpoints: (
+  'xs' : (max-width: $--sm - 1),
+  'sm' : (min-width: $--sm),
+  'md' : (min-width: $--md),
+  'lg' : (min-width: $--lg),
+  'xl' : (min-width: $--xl)
+);
+
+$--breakpoints-spec: (
+  'xs-only' : (max-width: $--sm - 1),
+  'sm-and-up' : (min-width: $--sm),
+  'sm-only': "(min-width: #{$--sm}) and (max-width: #{$--md - 1})",
+  'sm-and-down': (max-width: $--md - 1),
+  'md-and-up' : (min-width: $--md),
+  'md-only': "(min-width: #{$--md}) and (max-width: #{$--lg - 1})",
+  'md-and-down': (max-width: $--lg - 1),
+  'lg-and-up' : (min-width: $--lg),
+  'lg-only': "(min-width: #{$--lg}) and (max-width: #{$--xl - 1})",
+  'lg-and-down': (max-width: $--xl - 1),
+  'xl-only' : (min-width: $--xl),
+);
+@mixin when($state) {
+  @at-root {
+    &.is-#{$state} {
+      @content;
+    }
+  }
+}
+@mixin res($key, $map: $--breakpoints) {
+  // 循环断点Map，如果存在则返回
+  @if map-has-key($map, $key) {
+    @media only screen and #{inspect(map-get($map, $key))} {
+      @content;
+    }
+  } @else {
+    @warn "Undefeined points: `#{$map}`";
+  }
+}
+@mixin utils-clearfix {
+  $selector: &;
+  @at-root {
+    #{$selector}::before,
+    #{$selector}::after {
+      display: table;
+      content: "";
+    }
+    #{$selector}::after {
+      clear: both
+    }
+  }
+}
+[class*="vr-col-"] {
+  float: left;
+  box-sizing: border-box;
+}
+
+.vr-col-0 {
+  display: none;
+}
+.vr-row {
+  position: relative;
+  box-sizing: border-box;
+  @include utils-clearfix;
+}
+.vr-row--flex {
+  display: flex;
+  &:before,
+  &:after { display: none; }
+  @include when(justify-center) {
+    justify-content: center;
+  }
+  @include when(justify-end) {
+    justify-content: flex-end;
+  }
+  @include when(justify-space-between) {
+    justify-content: space-between;
+  }
+  @include when(justify-space-around) {
+    justify-content: space-around;
+  }
+  @include when(align-middle) {
+    align-items: center;
+  }
+  @include when(align-bottom) {
+    align-items: flex-end;
+  }
+}
+
+@for $i from 0 through 24 {
+  $cnum: ($i + 1) * 2;
+  .vr-row-gutter-#{$cnum} {
+    margin-left: -#{$cnum / 2}px; margin-right: -#{$cnum / 2}px;
+    [class*="vr-col-"] {
+      padding-left: #{$cnum / 2}px; padding-right: #{$cnum / 2}px;
+    }
+  }
+}
+
+@for $i from 0 through 24 {
+  .vr-col-#{$i} {
+    width: (1 / 24 * $i * 100) * 1%;
+  }
+
+  .vr-col-offset-#{$i} {
+    margin-left: (1 / 24 * $i * 100) * 1%;
+  }
+
+  .vr-col-pull-#{$i} {
+    position: relative;
+    right: (1 / 24 * $i * 100) * 1%;
+  }
+
+  .vr-col-push-#{$i} {
+    position: relative;
+    left: (1 / 24 * $i * 100) * 1%;
+  }
+}
+
+@include res(xs) {
+  .vr-col-xs-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .vr-col-xs-#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xs-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xs-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xs-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(sm) {
+  .vr-col-sm-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .vr-col-sm-#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-sm-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-sm-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-sm-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(md) {
+  .vr-col-md-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .vr-col-md-#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-md-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-md-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-md-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(lg) {
+  .vr-col-lg-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .vr-col-lg-#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-lg-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-lg-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-lg-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}
+
+@include res(xl) {
+  .vr-col-xl-0 {
+    display: none;
+  }
+  @for $i from 0 through 24 {
+    .vr-col-xl-#{$i} {
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xl-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xl-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .vr-col-xl-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
+}

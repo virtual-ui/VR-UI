@@ -53,6 +53,13 @@ module.exports = {
                             '/pages/component/Grid',
                             '/pages/component/Layout'
                         ]
+                    },
+                    {
+                        title:'表单',
+                        collapsable:false,
+                        children:[
+                            '/pages/component/Radio',
+                        ]
                     }
                 ]
             }

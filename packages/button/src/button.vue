@@ -1,5 +1,5 @@
 <template>
-    <button
+    <button v-waves
             class="vr-button"
             :class="[`vr-button--${type}`,
             {'is-plain':plain,'is-round':round,'is-circle':circle,'ripple':isRipper,'is-flat':flat,'is-loading':loading},
@@ -13,8 +13,10 @@
     </button>
 </template>
 <script>
+import waves from '../../utils/directives/waves/waves.js';
    export default {
        name:"VrButton",
+       directives:{waves},
        props:{
           type:{
               type:String,
@@ -88,7 +90,7 @@
         white-space: nowrap;
         cursor: pointer;
         background: #fff;
-        border: 1px solid #dcdfe6;
+        border: thin solid #dcdfe6;
         color: #606266;
         margin:6px 8px;
         border-radius: 2px;
@@ -102,10 +104,10 @@
         -moz-user-select: none;
         -webkit-user-select: none;
         -webkit-user-select: none;
-        padding: 12px 20px;
+        padding: 0 16px;
         font-size: 14px;
         transition: all 0.3s linear;
-        box-shadow:0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+        box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
         &:hover,
         &:focus {
             color: #409eff;
@@ -177,7 +179,8 @@
         }
     }
     // 朴素按钮
-    .vr-button--.is-plain{
+    .vr-button--default.is-plain{
+        box-shadow: none;
             &:hover,
             &:focus {
                 background: #fff;
@@ -190,17 +193,12 @@
         border:none;
         box-shadow: none;
         color: #4c4c4c;
-        &:active{
-            background: #fff;
-            border-color: #409eff;
-            color: #4c4c4c;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     .vr-button--primary.is-plain {
         color: #409eff;
         background-color: #ecf5ff;
         border-color: #b3d8ff;
+        box-shadow: none;
         &:hover,
         &:focus {
             background: #409eff;
@@ -213,17 +211,12 @@
         border-color: #fff;
         box-shadow: none;
         color: #409eff;
-        &:active {
-            background: #409eff;
-            border-color: #409eff;
-            color: #fff;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     .vr-button--success.is-plain {
         color: #67c23a;
         background-color: #f0f9eb;
         border-color: #c2e7b0;
+        box-shadow: none;
         &:hover,
         &:focus {
             background: #67c23a;
@@ -236,17 +229,12 @@
         border-color: #fff;
         color: #67c23a;
         box-shadow:none;
-        &:active {
-            background: #67c23a;
-            border-color: #67c23a;
-            color: #fff;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     .vr-button--info.is-plain {
         color: #909399;
         background-color: #f4f4f5;
         border-color: #d3d4d6;
+        box-shadow: none;
         &:hover,
         &:focus {
             background: #909399;
@@ -259,17 +247,12 @@
         background-color: unset;
         border:none;
         box-shadow: none;
-        &:active {
-            background: #909399;
-            border-color: #909399;
-            color: #fff;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     .vr-button--warning.is-plain {
         color: #e6a23c;
         background-color: #fdf6ec;
         border-color: #f5dab1;
+        box-shadow: none;
         &:hover,
         &:focus {
             background: #e6a23c;
@@ -281,17 +264,12 @@
         background-color: unset;
         border:none;
         box-shadow: none;
-        &:active {
-            background: #e6a23c;
-            border-color: #e6a23c;
-            color: #fff;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     .vr-button--danger.is-plain {
         color: #f56c6c;
         background-color: #fef0f0;
         border-color: #fbc4c4;
+        box-shadow: none;
         &:hover,
         &:focus {
             background: #f56c6c;
@@ -304,29 +282,26 @@
         background-color: unset;
         border:none;
         box-shadow: none;
-        &:active {
-            background: #f56c6c;
-            border-color: #f56c6c;
-            color: #fff;
-            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-        }
     }
     //按钮大小
     .vr-button--mini{
-        padding: 4px 10px;
-        font-size: 12px;
+        line-height: 23px;
+        font-size: 10px;
+        padding: 0 12px;
     }
     .vr-button--small{
-        padding: 6px 12px;
-        font-size:14px
+        line-height: 26px;
+        font-size: 12px;
+        padding: 0 14px;
     }
     .vr-button--middle{
-        padding: 8px 14px;
-        font-size: 16px;
+        line-height: 29px;
+        font-size: 14px;
     }
     .vr-button--large{
-        padding: 10px 16px;
-       font-size: 18px;
+       line-height: 32px;
+        font-size: 16px;
+        padding: 0 18px;
     }
     // 圆角
     .vr-button.is-round {
@@ -335,40 +310,11 @@
     // 圆形
     .vr-button.is-circle {
         border-radius: 50%;
-        padding: 12px;
+        padding: 10px;
+        line-height: 16px;
     }
     // button中icon和文字同时存在，设置margin值
     .vr-button [class*="vr-icon"] + span {
         margin-left: 5px;
-    }
-    //波紋效果
-    .ripple {
-        position: relative;
-        //隐藏溢出的径向渐变背景
-        overflow: hidden;
-    }
-    .ripple:after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        //设置径向渐变
-        background-image: radial-gradient(circle, #333 10%, transparent 10.01%);
-        background-repeat: no-repeat;
-        background-position: 50%;
-        transform: scale(10, 10);
-        opacity: 0;
-        transition: transform .3s, opacity .5s;
-    }
-
-    .ripple:active:after {
-        transform: scale(0, 0);
-        opacity: .3;
-        //设置初始状态
-        transition: 0s;
     }
 </style>

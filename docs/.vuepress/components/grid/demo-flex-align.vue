@@ -1,22 +1,29 @@
 <template>
     <div>
-        <vr-row type="flex" justify="center" align="top">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
-        <vr-row type="flex" justify="center" align="bottom">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg" justify="center">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
-        <vr-row  type="flex" justify="center" align="midddle">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg" justify="end">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+        </vr-row>
+        <vr-row type="flex" class="row-bg" justify="space-between">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+        </vr-row>
+        <vr-row type="flex" class="row-bg" justify="space-around">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
     </div>
 </template>
@@ -52,4 +59,10 @@
             }
         }
     }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
+    }
+
+    
 </style>

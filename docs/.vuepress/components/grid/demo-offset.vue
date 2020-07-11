@@ -1,17 +1,15 @@
 <template>
     <div>
-        <vr-row :gutter="20">
-            <vr-col :span="8"><div class="content">col-8</div></vr-col>
-            <vr-col :span="8" :offset="8"><div class="content">col-8 | offset-8</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
-        <br>
-        <vr-row :gutter="20">
-            <vr-col :span="6" :offset="8"><div class="content">col-6 | offset-8</div></vr-col>
-            <vr-col :span="6" :offset="4"><div class="content">col-6 | offset-4</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
-        <br>
-        <vr-row :gutter="20">
-            <vr-col :span="12" :offset="8"><div class="content">col-12 | offset-8</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="12" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
     </div>
 </template>
@@ -46,5 +44,9 @@
                 background:rgba(204,102,153,.7);
             }
         }
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
     }
 </style>

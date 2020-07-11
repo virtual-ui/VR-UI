@@ -1,108 +1,72 @@
 <script>
     export default {
         name:"VrCol",
-        props:{
-            offset:{
-                type:Number,
-                default:0
+        props: {
+            span: {
+            type: Number,
+            default: 24
             },
-            order:{
-                type:Number,
-                default:0
+            tag: {
+            type: String,
+            default: 'div'
             },
-            pull:{
-                type:Number,
-                default:0
-            },
-            push:{
-                type:Number,
-                default:0
-            },
-            span:{
-                type:Number,
-                default:null
-            },
-            xs:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            sm:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            md:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            lg:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            xl:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            xxl:{
-                type:[Number,Object],
-                default:()=>{}
-            },
-            tag:{
-                type:String,
-                default:"div"
+            offset: Number,
+            pull: Number,
+            push: Number,
+            xs: [Number, Object],
+            sm: [Number, Object],
+            md: [Number, Object],
+            lg: [Number, Object],
+            xl: [Number, Object]
+        },
+
+        computed: {
+            gutter() {
+            let parent = this.$parent;
+            while (parent && parent.$options.componentName !== 'VrRow') {
+                parent = parent.$parent;
+            }
+            return parent ? parent.gutter : 0;
             }
         },
-        computed:{
-            gutter(){
-                let parent = this.$parent;
-                while(parent && parent.$options.componentName !== 'VrRow'){
-                    parent = parent.$parent;
-                }
-                return parent ? parent.gutter :0;
-            }
-        },
-        render(h){
+        render(h) {
             let classList = [];
-            classList.push(`vr-col-${this.span}`);
-            const style = this.style(this.gutter);
-            return h(this.tag,{
-                class:[
-                    'vr-col',
-                    [...classList]
-                ],
-                style:style
-            },this.$slots.default)
-        },
-        methods:{
-            style(gutter){
-                let style = {paddingTop:'', paddingRight:'',
-                    paddingBottom:'', paddingLeft:''};
-                let type = Object.prototype.toString.call(gutter)
-                switch (type) {
-                    case "[object Number]":
-                        Object.keys(style).forEach(key=>{
-                            style[key] = gutter / 2 + 'px';
-                        });
-                        break;
-                    case "[object Object]":  
-                        break;
-                    case "[object Array]":
-                        if(!gutter.length || gutter.length > 2){
-                            return;
-                        }else {
-                            Object.keys(style).forEach((key,index)=>{
-                                if(gutter.length === 1){
-                                    style[key] = (index + 1) % 2 === 0 ? gutter[0] / 2 + 'px' : "";
-                                }else if(gutter.length === 2){
-                                    style[key] = (index + 1) % 2 !== 0 ? gutter[0] / 2 + 'px' : gutter[1] / 2 + 'px';
-                                }
-                            })
-                        }
-                        break;
-                    default:
-                        return;
-                }
-                return style
+            let style = {};
+
+            if (this.gutter) {
+            style.paddingLeft = this.gutter / 2 + 'px';
+            style.paddingRight = style.paddingLeft;
             }
+
+            ['span', 'offset', 'pull', 'push'].forEach(prop => {
+            if (this[prop] || this[prop] === 0) {
+                classList.push(
+                prop !== 'span'
+                    ? `vr-col-${prop}-${this[prop]}`
+                    : `vr-col-${this[prop]}`
+                );
+            }
+            });
+
+            ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
+            if (typeof this[size] === 'number') {
+                classList.push(`vr-col-${size}-${this[size]}`);
+            } else if (typeof this[size] === 'object') {
+                let props = this[size];
+                Object.keys(props).forEach(prop => {
+                classList.push(
+                    prop !== 'span'
+                    ? `vr-col-${size}-${prop}-${props[prop]}`
+                    : `vr-col-${size}-${props[prop]}`
+                );
+                });
+            }
+            });
+
+            return h(this.tag, {
+            class: ['vr-col', classList],
+            style
+            }, this.$slots.default);
         }
     }
 </script>
@@ -118,6 +82,125 @@
             }@else {
                 width: (1 / 24 * $i * 100) * 1%;
             }
+        }
+    }   
+
+     @for $i from 0 through 24 {
+        .vr-col-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
+        }
+    }
+
+    @for $i from 0 through 24 {
+        .vr-col-xs-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xs-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xs-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xs-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
+        }
+    }
+
+    @for $i from 0 through 24 {
+        .vr-col-sm-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-sm-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-sm-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-sm-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
+        }
+    }
+
+    @for $i from 0 through 24 {
+        .vr-col-md-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-md-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-md-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-md-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
+        }
+    }
+
+    @for $i from 0 through 24 {
+        .vr-col-lg-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-lg-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+        .vr-col-lg-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-lg-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
+        }
+    }
+
+    @for $i from 0 through 24 {
+        .vr-col-xl-#{$i} {
+            width: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xl-offset-#{$i} {
+            margin-left: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xl-pull-#{$i} {
+            position: relative;
+            right: (1 / 24 * $i * 100) * 1%;
+        }
+
+        .vr-col-xl-push-#{$i} {
+            position: relative;
+            left: (1 / 24 * $i * 100) * 1%;
         }
     }
 </style>

@@ -74,54 +74,30 @@
 ```html
 <template>
     <div>
-        <vr-row type="flex" justify="center" align="top">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
-        <vr-row type="flex" justify="center" align="bottom">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg" justify="center">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
-        <vr-row  type="flex" justify="center" align="midddle">
-            <vr-col :span="4"><div class="grid-content" style="height: 80px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 30px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 100px">col-4</div></vr-col>
-            <vr-col :span="4"><div class="grid-content" style="height: 60px">col-4</div></vr-col>
+        <vr-row type="flex" class="row-bg" justify="end">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
-    </div>
-</template>
-```
-:::
-
-
-## Flex排序
-分栏之间存在间隔。
-
-<ClientOnly>
-<grid-demo-flex-order></grid-demo-flex-order>  
-</ClientOnly>
-
-::: details 查看代码
-```html
-<template>
-    <div>       
-        <vr-row type="flex">
-            <vr-col :span="6" :order="4">
-                <div class="content">1 | vr-col-order-4</div>
-            </vr-col>
-            <vr-col :span="6" :order="3">
-                <div class="content">2 | vr-col-order-3</div>
-            </vr-col>
-            <vr-col :span="6" :order="2">
-                <div class="content">3 | vr-col-order-2</div>
-            </vr-col>
-            <vr-col :span="6" :order="1">
-                <div class="content">4 | vr-col-order-1</div>
-            </vr-col>
+        <vr-row type="flex" class="row-bg" justify="space-between">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+        </vr-row>
+        <vr-row type="flex" class="row-bg" justify="space-around">
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
+            <vr-col :span="6"><div class="grid-content">col</div></vr-col>
         </vr-row>
     </div>
 </template>
@@ -139,18 +115,16 @@
 ```html
 <template>
     <div>
-        <vr-row :gutter="20">
-            <vr-col :span="8"><div class="content">col-8</div></vr-col>
-            <vr-col :span="8" :offset="8"><div class="content">col-8 | offset-8</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
-        <br>
-        <vr-row :gutter="20">
-            <vr-col :span="6" :offset="8"><div class="content">col-6 | offset-8</div></vr-col>
-            <vr-col :span="6" :offset="4"><div class="content">col-6 | offset-4</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
-        <br>
-        <vr-row :gutter="20">
-            <vr-col :span="12" :offset="8"><div class="content">col-12 | offset-8</div></vr-col>
+        <vr-row :gutter="20" class="row-bg">
+            <vr-col :span="12" :offset="6"><div class="content bg-purple">col</div></vr-col>
         </vr-row>
     </div>
 </template>
@@ -168,11 +142,16 @@
 ```html
 <template>
     <div>
-        <vr-row :gutter="10">
-            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
-            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
-            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
-            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
+        <vr-row class="row-bg">
+            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
+                <div class="content">col</div>
+            </vr-col>
+            <vr-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }">
+                <div class="content">col</div>
+            </vr-col>
+            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
+                <div class="content">col</div>
+            </vr-col>
         </vr-row>
     </div>
 </template>
@@ -183,19 +162,19 @@
 分栏之间存在间隔。
 
 <ClientOnly>
-<grid-demo-push-pull></grid-demo-push-pull>  
+<grid-demo-pull-push></grid-demo-pull-push>  
 </ClientOnly>
 
 ::: details 查看代码
 ```html
 <template>
     <div>
-        <vr-row>
-            <vr-col :span="18" :push="6">
-               <div class="content">col-18 | push-6</div>
+        <vr-row class="row-bg">
+            <vr-col :span="6" :pull="12">
+                <div style="background:rgba(153,51,102,.7); padding:10px;">col-6 | pull-12</div>
             </vr-col>
-            <vr-col :span="6" :pull="18">
-                <div class="content">col-6 | pull-18</div>
+            <vr-col :span="12" :push="6">
+               <div style="background:rgba(153,51,102,.7); padding:10px;">col-12 | push-6</div>
             </vr-col>
         </vr-row>
     </div>

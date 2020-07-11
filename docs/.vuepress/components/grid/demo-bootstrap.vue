@@ -1,12 +1,12 @@
 <template>
     <div>
-        <vr-row :gutter="10">
+        <!-- <vr-row :gutter="10">
             <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
             <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
             <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
             <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
-        </vr-row>
-         <!-- <vr-rows>
+        </vr-row> -->
+         <vr-row class="row-bg">
             <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
                 <div class="content">col</div>
             </vr-col>
@@ -16,7 +16,7 @@
             <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
                 <div class="content">col</div>
             </vr-col>
-        </vr-row> -->
+        </vr-row>
     </div>
 </template>
 
@@ -50,5 +50,9 @@
                 background:rgba(204,102,153,.7);
             }
         }
+    }
+    .row-bg {
+        padding: 10px 0;
+        background-color: #f9fafc;
     }
 </style>
