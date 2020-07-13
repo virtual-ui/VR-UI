@@ -142,16 +142,11 @@
 ```html
 <template>
     <div>
-        <vr-row class="row-bg">
-            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
-            <vr-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
-            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
+        <vr-row :gutter="10" class="row-bg">
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="3"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="6" :xl="9"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="6" :xl="9"><div class="content">col</div></vr-col>
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="3"><div class="content">col</div></vr-col>
         </vr-row>
     </div>
 </template>
@@ -170,11 +165,11 @@
 <template>
     <div>
         <vr-row class="row-bg">
-            <vr-col :span="6" :pull="12">
-                <div style="background:rgba(153,51,102,.7); padding:10px;">col-6 | pull-12</div>
+            <vr-col :span="18" :push="6">
+                <div class="content">col-18 | push-6</div>
             </vr-col>
-            <vr-col :span="12" :push="6">
-               <div style="background:rgba(153,51,102,.7); padding:10px;">col-12 | push-6</div>
+            <vr-col :span="6" :pull="18">
+                <div class="content">col-6 | pull-18</div>
             </vr-col>
         </vr-row>
     </div>

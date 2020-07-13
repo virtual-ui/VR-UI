@@ -1,15 +1,15 @@
 <template>
     <div>
         <vr-row :gutter="20" class="row-bg">
-            <vr-col :span="6"><div class="content bg-purple">col</div></vr-col>
-            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6"><div class="content">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content">col</div></vr-col>
         </vr-row>
         <vr-row :gutter="20" class="row-bg">
-            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
-            <vr-col :span="6" :offset="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content">col</div></vr-col>
+            <vr-col :span="6" :offset="6"><div class="content">col</div></vr-col>
         </vr-row>
         <vr-row :gutter="20" class="row-bg">
-            <vr-col :span="12" :offset="6"><div class="content bg-purple">col</div></vr-col>
+            <vr-col :span="12" :offset="6"><div class="content">col</div></vr-col>
         </vr-row>
     </div>
 </template>

@@ -11,8 +11,8 @@
             default: 'div'
             },
             offset: Number,
-            pull: Number,
             push: Number,
+            pull: Number,
             xs: [Number, Object],
             sm: [Number, Object],
             md: [Number, Object],
@@ -85,6 +85,24 @@
         }
     }   
 
+    .vr-col-0 {
+        display: none;
+    }
+    .vr-col-xs-0 {
+        display: none;
+    }
+    .vr-col-sm-0 {
+        display: none;
+    }
+    .vr-col-md-0 {
+        display: none;
+    }
+    .vr-col-lg-0 {
+        display: none;
+    }
+    .vr-col-xl-0 {
+        display: none;
+    }
      @for $i from 0 through 24 {
         .vr-col-#{$i} {
             width: (1 / 24 * $i * 100) * 1%;

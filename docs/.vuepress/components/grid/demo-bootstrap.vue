@@ -1,21 +1,10 @@
 <template>
     <div>
-        <!-- <vr-row :gutter="10">
-            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
-            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
-            <vr-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="content">col</div></vr-col>
-            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="content">col</div></vr-col>
-        </vr-row> -->
-         <vr-row class="row-bg">
-            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
-            <vr-col :xs="{ span: 11, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
-            <vr-col :xs="{ span: 5, offset: 1 }" :lg="{ span: 6, offset: 2 }">
-                <div class="content">col</div>
-            </vr-col>
+        <vr-row :gutter="10" class="row-bg">
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="3"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="6" :xl="9"><div class="content">col</div></vr-col>
+            <vr-col :xs="4" :sm="6" :md="8" :lg="6" :xl="9"><div class="content">col</div></vr-col>
+            <vr-col :xs="8" :sm="6" :md="4" :lg="3" :xl="3"><div class="content">col</div></vr-col>
         </vr-row>
     </div>
 </template>
